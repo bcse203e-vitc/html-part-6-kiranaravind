@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove Duplicates from an Array</title>
+    <script>
+        function removeDuplicatesUsingSet(arr) {
+            return [...new Set(arr)];
+        }
+
+        function removeDuplicatesWithoutSet(arr) {
+            let uniqueArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (!uniqueArr.includes(arr[i])) {
+                    uniqueArr.push(arr[i]);
+                }
+            }
+            return uniqueArr;
+        }
+
+        function displayUniqueArray() {
+            let arr = document.getElementById('arrayInput').value.split(',').map(Number);
+            let method = document.getElementById('method').value;
+            let result;
+
+            if (method === 'usingSet') {
+                result = removeDuplicatesUsingSet(arr);
+            } else {
+                result = removeDuplicatesWithoutSet(arr);
+            }
+
+            document.getElementById('result').innerText = `Unique Array: ${result.join(', ')}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Remove Duplicates from an Array</h1>
+    <input type="text" id="arrayInput" placeholder="Enter array elements separated by commas">
+    <select id="method">
+        <option value="usingSet">Using Set</option>
+        <option value="withoutSet">Without Using Set</option>
+    </select>
+    <button onclick="displayUniqueArray()">Remove Duplicates</button>
+    <p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Conversion</title>
+    <script>
+        function celsiusToFahrenheit(celsius) {
+            return (celsius * 9/5) + 32;
+        }
+
+        function fahrenheitToCelsius(fahrenheit) {
+            return (fahrenheit - 32) * 5/9;
+        }
+
+        function displayConversion() {
+            let temp = parseFloat(document.getElementById('temperature').value);
+            let conversionType = document.getElementById('conversionType').value;
+            let result;
+
+            if (conversionType === 'CtoF') {
+                result = `${temp}°C is ${celsiusToFahrenheit(temp)}°F`;
+            } else {
+                result = `${temp}°F is ${fahrenheitToCelsius(temp)}°C`;
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Temperature Conversion</h1>
+    <input type="number" id="temperature" placeholder="Enter temperature">
+    <select id="conversionType">
+        <option value="CtoF">Celsius to Fahrenheit</option>
+        <option value="FtoC">Fahrenheit to Celsius</option>
+    </select>
+    <button onclick="displayConversion()">Convert</button>
+    <p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check If a Number is Even or Odd</title>
+    <script>
+        function isEvenOrOdd(num) {
+            return num % 2 === 0 ? 'Even' : 'Odd';
+        }
+
+        function separateEvenAndOdd(numbers) {
+            let evenNumbers = [];
+            let oddNumbers = [];
+
+            for (let num of numbers) {
+                if (num % 2 === 0) {
+                    evenNumbers.push(num);
+                } else {
+                    oddNumbers.push(num);
+                }
+            }
+
+            return { evenNumbers, oddNumbers };
+        }
+
+        function displayEvenOrOdd() {
+            let num = parseInt(document.getElementById('number').value);
+            let result = isEvenOrOdd(num);
+            document.getElementById('resultSingle').innerText = `The number is ${result}`;
+        }
+
+        function displaySeparatedNumbers() {
+            let numbers = document.getElementById('arrayInput').value.split(',').map(Number);
+            let result = separateEvenAndOdd(numbers);
+            document.getElementById('resultEven').innerText = `Even Numbers: ${result.evenNumbers.join(', ')}`;
+            document.getElementById('resultOdd').innerText = `Odd Numbers: ${result.oddNumbers.join(', ')}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Check If a Number is Even or Odd</h1>
+    <input type="number" id="number" placeholder="Enter a number">
+    <button onclick="displayEvenOrOdd()">Check</button>
+    <p id="resultSingle"></p>
+
+    <h1>Separate Even and Odd Numbers in an Array</h1>
+    <input type="text" id="arrayInput" placeholder="Enter array elements separated by commas">
+    <button onclick="displaySeparatedNumbers()">Separate</button>
+    <p id="resultEven"></p>
+    <p id="resultOdd"></p>
+</body>
+</html>

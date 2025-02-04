@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reverse a Number</title>
+    <script>
+        function reverseNumber(num) {
+            let reversed = parseInt(num.toString().split('').reverse().join(''));
+            return reversed;
+        }
+
+        function isPalindrome(num) {
+            let reversed = reverseNumber(num);
+            return num === reversed;
+        }
+
+        function displayReversedNumber() {
+            let num = parseInt(document.getElementById('number').value);
+            let reversed = reverseNumber(num);
+            let palindromeCheck = isPalindrome(num);
+            document.getElementById('result').innerText = `Reversed: ${reversed}`;
+            document.getElementById('palindrome').innerText = `Is Palindrome: ${palindromeCheck}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Reverse a Number</h1>
+    <input type="number" id="number" placeholder="Enter a number">
+    <button onclick="displayReversedNumber()">Reverse</button>
+    <p id="result"></p>
+    <p id="palindrome"></p>
+</body>
+</html>

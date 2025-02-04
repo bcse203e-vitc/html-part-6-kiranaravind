@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find GCD</title>
+    <script>
+        function gcdIterative(a, b) {
+            while (b !== 0) {
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+
+        function gcdRecursive(a, b) {
+            if (b === 0) {
+                return a;
+            }
+            return gcdRecursive(b, a % b);
+        }
+
+        function displayGCD() {
+            let a = parseInt(document.getElementById('num1').value);
+            let b = parseInt(document.getElementById('num2').value);
+            let method = document.getElementById('method').value;
+            let result;
+
+            if (method === 'iterative') {
+                result = gcdIterative(a, b);
+            } else {
+                result = gcdRecursive(a, b);
+            }
+
+            document.getElementById('result').innerText = `GCD: ${result}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Find GCD</h1>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <select id="method">
+        <option value="iterative">Iterative</option>
+        <option value="recursive">Recursive</option>
+    </select>
+    <button onclick="displayGCD()">Find GCD</button>
+    <p id="result"></p>
+</body>
+</html>

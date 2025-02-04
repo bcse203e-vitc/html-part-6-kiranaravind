@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Swap Two Variables Without Using a Third Variable</title>
+    <script>
+        function swapUsingArithmetic() {
+            let a = parseInt(document.getElementById('num1').value);
+            let b = parseInt(document.getElementById('num2').value);
+
+            a = a + b;
+            b = a - b;
+            a = a - b;
+
+            document.getElementById('result').innerText = `a = ${a}, b = ${b}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Swap Two Variables Without Using a Third Variable</h1>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button onclick="swapUsingArithmetic()">Swap</button>
+    <p id="result"></p>
+</body>
+</html>

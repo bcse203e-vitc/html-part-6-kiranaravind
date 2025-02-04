@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Count Character Occurrences</title>
+    <script>
+        function countCharacterOccurrences(str) {
+            let charCount = {};
+
+            for (let char of str) {
+                charCount[char] = (charCount[char] || 0) + 1;
+            }
+
+            return charCount;
+        }
+
+        function displayCharacterOccurrences() {
+            let str = document.getElementById('inputString').value;
+            let result = countCharacterOccurrences(str);
+            document.getElementById('result').innerText = JSON.stringify(result);
+        }
+    </script>
+</head>
+<body>
+    <h1>Count Character Occurrences</h1>
+    <input type="text" id="inputString" placeholder="Enter a string">
+    <button onclick="displayCharacterOccurrences()">Count</button>
+    <p id="result"></p>
+</body>
+</html>

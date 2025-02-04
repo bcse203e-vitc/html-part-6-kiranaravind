@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convert Number to Binary</title>
+    <script>
+        function decimalToBinary(decimal) {
+            return decimal.toString(2);
+        }
+
+        function binaryToDecimal(binary) {
+            return parseInt(binary, 2);
+        }
+
+        function displayConversion() {
+            let number = document.getElementById('number').value;
+            let conversionType = document.getElementById('conversionType').value;
+            let result;
+
+            if (conversionType === 'decimalToBinary') {
+                result = decimalToBinary(parseInt(number));
+            } else {
+                result = binaryToDecimal(number);
+            }
+
+            document.getElementById('result').innerText = `Converted: ${result}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Convert Number to Binary</h1>
+    <input type="text" id="number" placeholder="Enter number">
+    <select id="conversionType">
+        <option value="decimalToBinary">Decimal to Binary</option>
+        <option value="binaryToDecimal">Binary to Decimal</option>
+    </select>
+    <button onclick="displayConversion()">Convert</button>
+    <p id="result"></p>
+</body>
+</html>
